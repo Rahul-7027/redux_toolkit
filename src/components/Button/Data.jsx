@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment } from '../Slicer/counterSlice'
 
 const Data = () => {
-   const count= useSelector((state)=>console.log(33333,state))
+   const count= useSelector((state)=>state.counter.value)
    const dispatch=useDispatch()
    
   return (
@@ -19,6 +19,7 @@ const Data = () => {
         <span>{count}</span>
         <button
           aria-label="Decrement value"
+          disabled={count===0}
           onClick={() => dispatch(decrement())}
         >
           Decrement
